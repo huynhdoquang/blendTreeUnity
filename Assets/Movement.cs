@@ -10,10 +10,7 @@ public class Movement : MonoBehaviour {
 
     Animator thisAnim;
     float lastX, lastY;
-
-    float horizontal;
-    float vertical;
-
+    
     public GameObject bulletPrefab;
     // Use this for initialization
     void Start () {
