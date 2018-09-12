@@ -27,7 +27,24 @@ class GridMove : MonoBehaviour
     private float t;
     private float factor;
 
+    private bool m_isAxisInUse = false;
 
+    void CheckAxisInUse()
+    {
+        if (Input.GetAxis("Horizontal") != 0)
+        {
+            if (m_isAxisInUse == false)
+            {
+                // Call your event function here.
+                m_isAxisInUse = true;
+            }
+        }
+        if (Input.GetAxis("Horizontal") == 0)
+        {
+            m_isAxisInUse = false;
+        }
+    }
+   
     public void Update()
     {
         if (!isMoving )
