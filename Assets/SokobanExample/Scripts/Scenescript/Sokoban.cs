@@ -80,6 +80,7 @@ public class Sokoban : MonoBehaviour {
 					sr = tile.AddComponent<SpriteRenderer>();//add a sprite renderer
 					sr.sprite=tileSprite;//assign tile sprite
 					tile.transform.position=GetScreenPointFromLevelIndices(i,j);//place in scene based on level indices
+
 					if(val==destinationTile){//if it is a destination tile, give different color
 						sr.color=destinationColor;
 						destinationCount++;//count destinations
@@ -93,7 +94,9 @@ public class Sokoban : MonoBehaviour {
 							sr.color=Color.red;
 							hero.transform.position=GetScreenPointFromLevelIndices(i,j);
 							occupants.Add(hero, new Vector2(i,j));//store the level indices of hero in dict
-						}else if(val==ballTile){//ball tile
+						}
+
+                        else if(val==ballTile){//ball tile
 							ballCount++;//increment number of balls in level
 							ball = new GameObject("ball"+ballCount.ToString());
 							ball.transform.localScale=Vector2.one*(tileSize-1);
