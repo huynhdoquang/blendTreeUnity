@@ -10,8 +10,7 @@ public class Movement : MonoBehaviour {
 
     Animator thisAnim;
     float lastX, lastY;
-    
-    public GameObject bulletPrefab;
+
     // Use this for initialization
     void Start () {
         thisAnim = GetComponent<Animator>();
@@ -19,10 +18,6 @@ public class Movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey("space"))
-        {
-            Shoot();
-        }
         Move();
     }
 
@@ -57,10 +52,4 @@ public class Movement : MonoBehaviour {
         thisAnim.SetFloat("DirY", dir.y);
     }
 
-    void Shoot()
-    {
-        GameObject bullet = Lean.Pool.LeanPool.Spawn(bulletPrefab);
-        bullet.transform.position = transform.position;
-        bullet.transform.rotation = transform.rotation;
-    }
 }
