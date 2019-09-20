@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Movement2D : MonoBehaviour
 {
     Vector3 heading;
     [SerializeField] private float moveSpeed = 4f;
@@ -19,7 +19,8 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        //if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+        //    Move();
     }
 
     private void Move()
@@ -34,7 +35,7 @@ public class Movement : MonoBehaviour
         UpdateAnimation(heading);
     }
 
-    void UpdateAnimation(Vector3 dir)
+    public void UpdateAnimation(Vector3 dir)
     {
         if (dir.x == 0 && dir.y == 0)
         {
