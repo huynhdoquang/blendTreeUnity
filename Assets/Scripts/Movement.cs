@@ -2,28 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour {
-
-
+public class Movement : MonoBehaviour
+{
     Vector3 heading;
-    public float moveSpeed = 4f;
+    [SerializeField] private float moveSpeed = 4f;
 
     Animator thisAnim;
     float lastX, lastY;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         thisAnim = GetComponent<Animator>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         Move();
     }
 
     private void Move()
     {
-        Vector3 rightMovement = Vector3.right * moveSpeed *Time.deltaTime * Input.GetAxisRaw("Horizontal");
+        Vector3 rightMovement = Vector3.right * moveSpeed * Time.deltaTime * Input.GetAxisRaw("Horizontal");
         Vector3 upMovement = Vector3.up * moveSpeed * Time.deltaTime * Input.GetAxisRaw("Vertical");
         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
 
@@ -35,7 +36,7 @@ public class Movement : MonoBehaviour {
 
     void UpdateAnimation(Vector3 dir)
     {
-        if(dir.x == 0 && dir.y == 0)
+        if (dir.x == 0 && dir.y == 0)
         {
             thisAnim.SetFloat("LastDirX", lastX);
             thisAnim.SetFloat("LastDirY", lastY);
